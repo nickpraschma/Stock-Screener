@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+import Dropdown from './components/Dropdown';
 import MovieCard from './MovieCard'
 import './App.css'
 import SearchIcon from './search.svg'
@@ -31,8 +32,41 @@ const App = () => {
 
     return (
         <div className="app">
-            <h1>Movieland</h1>
-            <div className="search">
+            <h1>Stock Screener</h1>
+            <h2>Use the Filters Below</h2>
+            <div>
+                <span>Marketcap </span>
+                <span>between </span> 
+                <input type="text"></input>
+                <span> - </span>
+                <input type="text"></input>
+            </div>
+            <div>
+                <span>Price </span>
+                <span>between </span> 
+                <input type="text"></input>
+                <span> - </span>
+                <input type="text"></input>
+            </div>
+            <div>
+                <span>Volume </span>
+                <span>between </span> 
+                <input type="text"></input>
+                <span> - </span>
+                <input type="text"></input>
+            </div>
+            <div>
+                <span>Beta </span>
+                <span>between </span> 
+                <input type="text"></input>
+                <span> - </span>
+                <input type="text"></input>
+            </div>
+            <div>
+                <span>Sector </span>
+                <Dropdown></Dropdown>
+            </div>
+            {/* <div className="search">
                 <input 
                     placeholder="search for movies"
                     value={searchTerm}
@@ -56,7 +90,7 @@ const App = () => {
                     <div className="empty">
                         <h2>No movies found</h2>
                     </div>
-                )}
+                )} */}
         </div>
     )
 }
