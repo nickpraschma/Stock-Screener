@@ -66,6 +66,10 @@ const App = () => {
                 <span>Sector </span>
                 <Dropdown></Dropdown>
             </div>
+            <div>
+                <span>Max number of stocks: </span>
+                <input type="text"></input>
+            </div>
             {/* <div className="search">
                 <input 
                     placeholder="search for movies"
