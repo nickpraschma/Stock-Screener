@@ -1,10 +1,10 @@
  import {useState} from "react";
-// import validator from "validator";
+import validator from "validator";
 import Select from "react-select";
 import Dropdown from './Dropdown';
 
 
-const UserForm = () => {
+const UserForm = ({ searchStocks }) => {
     const [filters, setFilters] = useState({});
     const [errors, setErrors] = useState({});
 
@@ -12,9 +12,18 @@ const UserForm = () => {
     const {marketCapLowerThan, marketCapMoreThan, priceLowerThan, priceMoreThan, 
         betaLowerThan, betaMoreThan, volumeLowerThan, volumeMoreThan,
         limit} = filters;
-
+    
+    let noMarketCap = false;
     const validateData = () => {
+        let errors = {};
+        // if (!marketCapLowerThan || !marketCapMoreThan) {
+        //     errors.marketCap = "Market cap parameters are required.";
+        //     noMarketCap = true;
+        // }
 
+        ///...
+
+        return errors;
     }
 
     const handleChange = (event) => {
@@ -27,21 +36,19 @@ const UserForm = () => {
     }
 
     const handleSave = () => {
-        // const errors = validateData();
-        // if (Object.keys(errors).length) {
-        //     setErrors(errors);
-        //     return;
-        // }
+        const errors = validateData();
+        if (Object.keys(errors).length) {
+            setErrors(errors);
+            return;
+        }
 
-        // setErrors({});
-        console.log("FILTERS TO BE SENT TO API:");
-        console.log(filters);
+        setErrors({});
         searchStocks(filters);
     }
 
-    const searchStocks = (filters) => {
-        console.log("SEND REQUEST TO API HERE")
-    }
+    // const searchStocks = (filters) => {
+    //     console.log("SEND REQUEST TO API HERE")
+    // }
 
     return (
             <div className="form">
@@ -73,11 +80,10 @@ const UserForm = () => {
                     <span> - </span>
                     <input name="betaMoreThan" type="text" value={betaMoreThan} onChange={handleChange} />
                 </div>
-                <div>
+                {/* <div>
                     <span>Sector </span>
-                    {/* TODO: get sectors values */}
                     <Dropdown></Dropdown>
-                </div>
+                </div> */}
                 <div>
                     <span>Max number of stocks: </span>
                     <input name="limit" type="text" value={limit} onChange={handleChange} />
