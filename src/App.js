@@ -70,6 +70,11 @@ const App = () => {
                 <span>Max number of stocks: </span>
                 <input type="text"></input>
             </div>
+            <div>
+                <button className="search" onClick={() => {}}>
+                    Search
+                </button>
+            </div>
             {/* <div className="search">
                 <input 
                     placeholder="search for movies"
