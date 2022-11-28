@@ -107,6 +107,34 @@ input {
   margin-left: 3px;
 }
 
+.activeButton {
+  color: rgb(249, 224, 224);
+  font-size:  16px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 0;
+  background: rgba(40, 132, 252, 0.8);
+  cursor: pointer;
+}
+
+.activeButton:hover {
+  background: rgba(40,132,252, 1);
+}
+
+.nonactiveButton {
+  color: grey;
+  font-size:  16px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 0;
+  background: rgba(240, 240, 240, 0.8);
+  cursor: pointer;
+}
+
+.nonactiveButton:hover {
+  background: rgba(230, 230, 230, 1);
+}
+
 .topBarButton {
   background-color: white;
   border-color: lightgrey;

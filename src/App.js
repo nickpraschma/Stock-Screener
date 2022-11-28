@@ -4,9 +4,6 @@ import UserForm from './components/UserForm';
 import Stock from './components/Stock';
 import TopBar from './components/TopBar';
 
-const API_URL = 'http://www.omdbapi.com?apikey=5dad54a6'
-
-
 const fakeStocks = [ 
     {
     "symbol" : "MSFT",
@@ -48,14 +45,15 @@ const fakeStocks = [
 
 const App = () => {
     const [stocks, setStocks] = useState([]);
+    const [sortingMethod, setSortingMethod] = useState("quicksort");
 
-    useEffect(() => {
-        console.log("Stocks changed");
-    }, [stocks])
+    // useEffect(() => {
+    //     console.log("Stocks changed");
+    // }, [stocks])
 
     const searchStocks = async (filters) => {
         console.log(filters);
-        const response = await fetch(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${filters.marketCapMoreThan}&marketCapLowerThan=${filters.marketCapLowerThan}&betaMoreThan=${filters.betaMoreThan}&betaLowerThan=${filters.betaLowerThan}&volumeMoreThan=${filters.volumeMoreThan}&volumeLowerThan=${filters.volumeLowerThan}&priceMoreThan=${filters.priceMoreThan}&priceLowerThan=${filters.priceLowerThan}&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=${filters.limit}&apikey=a5df1e34a66d2eeb25448eb9a1f2655f`);
+        const response = await fetch(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${filters.marketCapMoreThan}&marketCapLowerThan=${filters.marketCapLowerThan}&betaMoreThan=${filters.betaMoreThan}&betaLowerThan=${filters.betaLowerThan}&volumeMoreThan=${filters.volumeMoreThan}&volumeLowerThan=${filters.volumeLowerThan}&priceMoreThan=${filters.priceMoreThan}&priceLowerThan=${filters.priceLowerThan}&exchange=NASDAQ&limit=${filters.limit}&apikey=a5df1e34a66d2eeb25448eb9a1f2655f`);
         const data = await response.json();
         setStocks(data);
         console.log((data));
@@ -68,15 +66,6 @@ const App = () => {
         setStocks(currentStocks);
     }
 
-
-    // Keep this as reference until we get the API to work
-    // const searchMovies = async (title) => {
-    //     const response = await fetch(`${API_URL}&s=${title}`)
-    //     const data = await response.json()
-        
-    //     setMovies(data.Search)
-    // }
-
     return (
         <div className="app">
             <h1>Stock Screener</h1>
@@ -84,6 +73,15 @@ const App = () => {
             <UserForm searchStocks={searchStocks}/> 
             {stocks.length > 0 && 
             <div>
+                <button className={`${sortingMethod === "quicksort" ? "activeButton" : "nonactiveButton"}`}
+                    onClick={() => {setSortingMethod("quicksort")}}>
+                Quicksort
+                </button>
+                <button
+                    className={`${sortingMethod === "timsort" ? "activeButton" : "nonactiveButton"}`}
+                    onClick={() => {setSortingMethod("timsort")}}>
+                Timsort
+                </button>  
                 <button onClick={sortStocks}>Sort stocks</button>
                 <div className="grid">
                     <TopBar />
