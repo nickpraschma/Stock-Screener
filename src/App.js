@@ -57,10 +57,11 @@ const App = () => {
         console.log(filters);
         
 
-        // SEND API REQUEST HERE
-        // After API request is done, render the stocks to the user
-        // Need to replace fakeStocks with real stocks from API
-        setStocks(fakeStocks);
+      
+        const response = await fetch(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${filters.marketCapMoreThan}&marketCapLowerThan=${filters.marketCapLowerThan}&betaMoreThan=${filters.betaMoreThan}&betaLowerThan=${filters.betaLowerThan}&volumeMoreThan=${filters.volumeMoreThan}&volumeLowerThan=${filters.volumeLowerThan}&priceMoreThan=${filters.priceMoreThan}&priceLowerThan=${filters.priceLowerThan}&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=${filters.limit}&apikey=a5df1e34a66d2eeb25448eb9a1f2655f`);
+        const data = await response.json();
+        setStocks(data);
+        console.log((data));
     }
 
     // Sorts stocks alphabetically by symbol using built-in sorting algorithm
