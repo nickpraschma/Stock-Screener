@@ -21,8 +21,8 @@ const Stock = ({ stock }) => {
         <div>
             <container className="cell">{stock.symbol}</container>
             <container className="cell">{stock.price} <span class="USD">USD</span> </container>
-            <container className="cell">{nFormatter(stock.marketCap, 3)} <span class="USD">USD</span> </container>
-            <container className="cell">{nFormatter(stock.volume, 3)} </container>
+            <container className="cell">{nFormatter(stock.marketCap, 2)} <span class="USD">USD</span> </container>
+            <container className="cell">{nFormatter(stock.volume, 2)} </container>
             <container className="cell">{parseFloat(stock.beta).toFixed(3)} </container>
         </div>
     )

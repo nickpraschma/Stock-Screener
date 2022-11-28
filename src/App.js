@@ -73,6 +73,7 @@ const App = () => {
             <UserForm searchStocks={searchStocks}/> 
             {stocks.length > 0 && 
             <div>
+                <h2>{stocks.length} matches found! {stocks.length > 500 ? "Displaying first 500." : ""}</h2>
                 <button className={`${sortingMethod === "quicksort" ? "activeButton" : "nonactiveButton"}`}
                     onClick={() => {setSortingMethod("quicksort")}}>
                 Quicksort
@@ -85,8 +86,8 @@ const App = () => {
                 <button onClick={sortStocks}>Sort stocks</button>
                 <div className="grid">
                     <TopBar />
-                    {stocks.map((stock) => (
-                        <Stock stock={stock}/>
+                    {stocks.map((stock, index) => (
+                        index < 500 && <Stock stock={stock}/>
                     ))}
                 </div>
             </div>

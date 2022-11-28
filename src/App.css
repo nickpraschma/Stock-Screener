@@ -13,6 +13,7 @@ body {
 
 .app {
   padding: 4rem;
+  padding-top: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +21,7 @@ body {
 }
 
 h1 {
+  margin: 0;
   font-size: 3rem;
   letter-spacing: 0.9px;
   background: linear-gradient(
