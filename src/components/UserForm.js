@@ -1,14 +1,10 @@
  import {useState} from "react";
-import validator from "validator";
-import Select from "react-select";
-import Dropdown from './Dropdown';
-
 
 const UserForm = ({ searchStocks }) => {
     const [filters, setFilters] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState({});
 
-    // Need to add functionality for dropdown
     const {marketCapLowerThan, marketCapMoreThan, priceLowerThan, priceMoreThan, 
         betaLowerThan, betaMoreThan, volumeLowerThan, volumeMoreThan,
         limit} = filters;
@@ -31,11 +27,7 @@ const UserForm = ({ searchStocks }) => {
         setFilters((prevFilters) => ({...prevFilters, [name]: value}));
     }
 
-    const handleSelectChange = (option) => {
-        setFilters((prevFilters) => ({...prevFilters, sector: option}));
-    }
-
-    const handleSave = () => {
+    const handleSave = async () => {
         const errors = validateData();
         if (Object.keys(errors).length) {
             setErrors(errors);
@@ -43,12 +35,10 @@ const UserForm = ({ searchStocks }) => {
         }
 
         setErrors({});
-        searchStocks(filters);
+        setIsLoading(true);
+        await searchStocks(filters);
+        setIsLoading(false);
     }
-
-    // const searchStocks = (filters) => {
-    //     console.log("SEND REQUEST TO API HERE")
-    // }
 
     return (
             <div className="form">
@@ -80,18 +70,17 @@ const UserForm = ({ searchStocks }) => {
                     <span> - </span>
                     <input name="betaLowerThan" type="text" value={betaLowerThan} onChange={handleChange} />
                 </div>
-                {/* <div>
-                    <span>Sector </span>
-                    <Dropdown></Dropdown>
-                </div> */}
                 <div>
                     <span>Max number of stocks: </span>
                     <input name="limit" type="text" value={limit} onChange={handleChange} />
                 </div>
                 <div>
-                    <button className="search" onClick={handleSave}>
-                        Search
-                    </button>
+                    {isLoading 
+                        ? 
+                        <button className="loading">Loading</button>
+                        :
+                        <button className="search" onClick={handleSave}>Search</button>
+                     }
                 </div>
             </div>
     )

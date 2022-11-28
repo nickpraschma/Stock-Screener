@@ -70,7 +70,7 @@ const App = () => {
         <div className="app">
             <h1>Stock Screener</h1>
             <h2>Use the Filters Below</h2>
-            <UserForm searchStocks={searchStocks}/> 
+            <UserForm searchStocks={searchStocks} /> 
             {stocks.length > 0 && 
             <div>
                 <h2>{stocks.length} matches found! {stocks.length > 500 ? "Displaying first 500." : ""}</h2>
