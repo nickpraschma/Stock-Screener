@@ -1,20 +1,11 @@
 import { useState, useEffect } from 'react';
-
-import MovieCard from './MovieCard'
 import './App.css'
-import SearchIcon from './search.svg'
 import UserForm from './components/UserForm';
 import Stock from './components/Stock';
+import TopBar from './components/TopBar';
 
 const API_URL = 'http://www.omdbapi.com?apikey=5dad54a6'
 
-// const movie1 = {
-//     "Title": "The Amazing Spiderman T4 Premiere Special",
-//     "Year": "2012",
-//     "imdbID": "tt2233044",
-//     "Type": "movie",
-//     "Poster": "N/A"
-// }
 
 const fakeStocks = [ 
     {
@@ -56,18 +47,31 @@ const fakeStocks = [
 ]
 
 const App = () => {
-    // const [movies, setMovies] = useState([]);
     const [stocks, setStocks] = useState([]);
+
+    useEffect(() => {
+        console.log("Stocks changed");
+    }, [stocks])
 
     const searchStocks = async (filters) => {
         console.log(filters);
+        
 
         // SEND API REQUEST HERE
-        
         // After API request is done, render the stocks to the user
+        // Need to replace fakeStocks with real stocks from API
         setStocks(fakeStocks);
     }
 
+    // Sorts stocks alphabetically by symbol using built-in sorting algorithm
+    const sortStocks = () => {
+        let currentStocks = [...stocks];
+        currentStocks.sort((a, b) => a.symbol.localeCompare(b.symbol));
+        setStocks(currentStocks);
+    }
+
+
+    // Keep this as reference until we get the API to work
     // const searchMovies = async (title) => {
     //     const response = await fetch(`${API_URL}&s=${title}`)
     //     const data = await response.json()
@@ -75,18 +79,15 @@ const App = () => {
     //     setMovies(data.Search)
     // }
 
-    // useEffect(() => {
-    //     searchMovies('Spiderman')
-    // }, [])
-
     return (
         <div className="app">
             <h1>Stock Screener</h1>
             <h2>Use the Filters Below</h2>
             <UserForm searchStocks={searchStocks}/> 
-            {
-                stocks.length > 0 && 
+            {stocks.length > 0 && 
                 <div>
+                    <TopBar />
+                    <button onClick={sortStocks}>Sort stocks</button>
                     {stocks.map((stock) => (
                         <Stock stock={stock}/>
                     ))}

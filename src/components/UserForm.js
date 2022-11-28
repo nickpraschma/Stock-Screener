@@ -55,30 +55,30 @@ const UserForm = ({ searchStocks }) => {
                 <div>
                     <span>Marketcap </span>
                     <span>between </span> 
-                    <input name="marketCapLowerThan" type="text" value={marketCapLowerThan} onChange={handleChange} />
-                    <span> - </span>
                     <input name="marketCapMoreThan" type="text" value={marketCapMoreThan} onChange={handleChange} />
+                    <span> - </span>
+                    <input name="marketCapLowerThan" type="text" value={marketCapLowerThan} onChange={handleChange} />
                 </div>
                 <div>
                     <span>Price </span>
                     <span>between </span> 
-                    <input name="priceLowerThan" type="text" value={priceLowerThan} onChange={handleChange} />
-                    <span> - </span>
                     <input name="priceMoreThan" type="text" value={priceMoreThan} onChange={handleChange} />
+                    <span> - </span>
+                    <input name="priceLowerThan" type="text" value={priceLowerThan} onChange={handleChange} />
                 </div>
                 <div>
                     <span>Volume </span>
                     <span>between </span> 
-                    <input name="volumeLowerThan" type="text" value={volumeLowerThan} onChange={handleChange} />
-                    <span> - </span>
                     <input name="volumeMoreThan" type="text" value={volumeMoreThan} onChange={handleChange} />
+                    <span> - </span>
+                    <input name="volumeLowerThan" type="text" value={volumeLowerThan} onChange={handleChange} />
                 </div>
                 <div>
                     <span>Beta </span>
                     <span>between </span> 
-                    <input name="betaLowerThan" type="text" value={betaLowerThan} onChange={handleChange} />
-                    <span> - </span>
                     <input name="betaMoreThan" type="text" value={betaMoreThan} onChange={handleChange} />
+                    <span> - </span>
+                    <input name="betaLowerThan" type="text" value={betaLowerThan} onChange={handleChange} />
                 </div>
                 {/* <div>
                     <span>Sector </span>
