@@ -157,8 +157,8 @@ input {
   border-style: solid;
   font-size: 20px;
   color: grey;
-  padding: 10px 60px 10px 60px;
   width: 250px;
+  height: 45px;
   cursor: pointer;
 }
 
