@@ -49,11 +49,17 @@ h2 {
   font-size: 1rem;
   letter-spacing: 0.9px;
   background: rgb(50, 84, 128);
-  /* background: linear-gradient(
-    90deg,
-    rgb(51, 64, 180) 0%,
-    rgba(71, 56, 208, 0) 150%
-  ); */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+}
+
+.sortedMessage {
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.9px;
+  background: rgb(50, 84, 128);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

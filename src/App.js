@@ -10,6 +10,7 @@ const App = () => {
     const [sortingMethod, setSortingMethod] = useState("quicksort");
     const [resetFlag, setResetFlag] = useState(false);
     const [hasSearchAtLeastOnce, setHasSearchedAtLeastOnce] = useState(false);
+    const [timeToSort, setTimeToSort] = useState(0);
 
     const searchStocks = async (filters) => {
         console.log("filters: ", filters);
@@ -27,15 +28,17 @@ const App = () => {
     const sortStocks = (sortBy, sortAscending) => {
         let currentStocks = [...stocks];
 
-        const t0 = performance.now();
+        const t0 = window.performance.now();
         if(sortingMethod === "timsort") {
             TimSort(currentStocks, sortingMethod, sortBy, sortAscending);
-            const t1 = performance.now();
-            console.log(`Time ${t1-t0}`);
         }
-
-
+        else {
+            // quicksort
+        }
+        const t1 = window.performance.now();
+        console.log(`Time ${t1-t0}`);
         setStocks(currentStocks);
+        setTimeToSort(t1-t0);
     }
 
     return (
@@ -56,6 +59,7 @@ const App = () => {
                     onClick={() => {setSortingMethod("timsort")}}>
                 Timsort
                 </button>  
+                <span className="sortedMessage"> Sorted stocks in {timeToSort.toFixed(4)} ms.</span>
                 <div className="grid">
                     <TopBar setParameters={sortStocks} reset={resetFlag}/>
                     {stocks.map((stock, index) => (
