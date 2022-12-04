@@ -45,7 +45,7 @@ const App = () => {
     return (
         <div className="app">
             <h1>Stock Screener</h1>
-            <h2>Created by Nikolas Praschma, Justin Adams, and Andrew Miller</h2>
+            <h2>Created by Nikolas Praschma, Justin Adam, and Andrew Miller</h2>
             <h2>Use the Search Filters Below</h2>
             <UserForm searchStocks={searchStocks} /> 
             {stocks.length > 0 && 

@@ -110,9 +110,9 @@ input {
   font-size: 20px;
   text-align: center;
   color: black;
-  padding: 10px 60px 10px 60px;
+  padding: 10px 20px 10px 20px;
   display: inline-block;
-  width: 130px;
+  width: 190px;
 }
 
 .USD {
@@ -157,7 +157,7 @@ input {
   border-style: solid;
   font-size: 20px;
   color: grey;
-  width: 250px;
+  width: 230px;
   height: 45px;
   cursor: pointer;
 }

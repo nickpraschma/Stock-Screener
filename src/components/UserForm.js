@@ -1,4 +1,4 @@
- import {useState} from "react";
+ import { useState } from "react";
 
 const UserForm = ({ searchStocks }) => {
     const [filters, setFilters] = useState({});
@@ -9,7 +9,6 @@ const UserForm = ({ searchStocks }) => {
         betaLowerThan, betaMoreThan, volumeLowerThan, volumeMoreThan,
         limit} = filters;
     
-    let noMarketCap = false;
     const validateData = () => {
         let errors = {};
         // if (!marketCapLowerThan || !marketCapMoreThan) {
