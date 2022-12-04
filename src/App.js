@@ -8,6 +8,7 @@ const App = () => {
     const [stocks, setStocks] = useState([]);
     const [sortingMethod, setSortingMethod] = useState("quicksort");
     const [resetFlag, setResetFlag] = useState(false);
+    const [hasSearchAtLeastOnce, setHasSearchedAtLeastOnce] = useState(false);
 
     const searchStocks = async (filters) => {
         console.log("filters: ", filters);
@@ -16,6 +17,7 @@ const App = () => {
         setStocks(data);
         console.log("stock data: ", data);
 
+        setHasSearchedAtLeastOnce(true);
         // Reset sorting parameters when search button is clicked
         setResetFlag(resetFlag => !resetFlag);
     }
@@ -46,11 +48,11 @@ const App = () => {
         <div className="app">
             <h1>Stock Screener</h1>
             <h2>Created by Nikolas Praschma, Justin Adam, and Andrew Miller</h2>
-            <h2>Use the Search Filters Below</h2>
+            <h2>Use the search filters below to find stocks on the Nasdaq exchange</h2>
             <UserForm searchStocks={searchStocks} /> 
             {stocks.length > 0 && 
             <div>
-                <h2>{stocks.length} matches found! {stocks.length > 500 ? "Displaying first 500." : ""}</h2>
+                <h2>{stocks.length} match{stocks.length > 1 && 'es'} found! {stocks.length > 500 ? "Displaying first 500." : ""}</h2>
                 <button className={`${sortingMethod === "quicksort" ? "activeButton" : "nonactiveButton"}`}
                     onClick={() => {setSortingMethod("quicksort")}}>
                 Quicksort
@@ -68,6 +70,7 @@ const App = () => {
                 </div>
             </div>
             }
+            {(hasSearchAtLeastOnce && stocks.length === 0) && <h2>No matches found. Try adjusting your search parameters.</h2>}
         </div>
     )
 }
