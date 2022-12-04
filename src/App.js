@@ -4,6 +4,7 @@ import UserForm from './components/UserForm';
 import Stock from './components/Stock';
 import TopBar from './components/TopBar';
 import TimSort from './TimSort';
+import quicksort from "./components/tutorial";
 
 const App = () => {
     const [stocks, setStocks] = useState([]);
@@ -33,7 +34,7 @@ const App = () => {
             TimSort(currentStocks, sortingMethod, sortBy, sortAscending);
         }
         else {
-            // quicksort
+            currentStocks = quicksort(currentStocks, sortBy, sortAscending);
         }
         const t1 = window.performance.now();
         console.log(`Time ${t1-t0}`);
