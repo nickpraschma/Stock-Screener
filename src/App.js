@@ -3,6 +3,7 @@ import './App.css'
 import UserForm from './components/UserForm';
 import Stock from './components/Stock';
 import TopBar from './components/TopBar';
+import TimSort from './TimSort';
 
 const App = () => {
     const [stocks, setStocks] = useState([]);
@@ -26,21 +27,14 @@ const App = () => {
     const sortStocks = (sortBy, sortAscending) => {
         let currentStocks = [...stocks];
 
-        /*
-        Use the following three parameters to sort the stocks using custom sorting algorithm
-        1. sortingMethod (either "timsort" or "quicksort"), 
-        2. sortBy (either "symbol", "price", "marketCap", "volume", or "beta"),
-        3. sortAscending (either true or false)
-        */
-        console.log("Inside of sortStocks(), sortingMethod is", sortingMethod);
-        console.log("Inside of sortStocks(), sortBy is ", sortBy);
-        console.log("Inside of sortStocks(), sortAscending is ", sortAscending);
-        if (sortAscending) {
-            currentStocks.sort((a, b) => a.price - b.price);
+        const t0 = performance.now();
+        if(sortingMethod === "timsort") {
+            TimSort(currentStocks, sortingMethod, sortBy, sortAscending);
+            const t1 = performance.now();
+            console.log(`Time ${t1-t0}`);
         }
-        else {
-            currentStocks.sort((a, b) => b.price - a.price);
-        }
+
+
         setStocks(currentStocks);
     }
 
