@@ -3,8 +3,8 @@ import './App.css'
 import UserForm from './components/UserForm';
 import Stock from './components/Stock';
 import TopBar from './components/TopBar';
-import TimSort from './TimSort';
-import quicksort from "./components/tutorial";
+import TimSort from './sorting_algorithms/TimSort';
+import quicksort from "./sorting_algorithms/QuickSort";
 
 const App = () => {
     const [stocks, setStocks] = useState([]);
