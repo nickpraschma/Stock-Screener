@@ -25,11 +25,11 @@ class randomStock{
     }
 }
 
-const sectors = Array("Energy", "Technology", "Industrials", "Financial Services", "Basic Materials", "Communication Services", "Consumer Defensive", "Healthcare", "Real Estate", "Utilities", "Industrial Goods", "Financial", "Services", "Conglomerates");
-const industries = Array("Autos" , "Banks" , "Banks Diversified" , "Software" , "Banks Regional" , "Beverages Alcoholic" , "Beverages Brewers" , "Beverages Non-Alcoholic")
-const endNames = Array("LLC" , "Management" ,"Inc" ,"Capital" ,"Advisors" ,"Group" ,"Services" , "Foundation" , "Partners" ,"Advisory" ,"Associates" ,"Corporation","Company","Corp","Global","Solutions","Fund","Strategies" ,"Retirement" ,"Consultants" ,"Hill" ,"Strategies" ,"New" ,"Strategic" ,"Portfolio" ,"Counsel" , "Solutions" , "Numerics");
-const middleNames = Array("News" , "Equipment" , "Techniques" , "Layers" , "Utensils" , "Foods" , "Oils" , "Instruments" , "Engineering" , "Construction" , "Fencing" , "Oranges" , "Markers" , "Pencils" , "Rods" , "Bricks" , "Housing" , "Training", "Cotton", "Corn", "Paint", "Hats", "Apples", "Bottles", "Shoes", "Pretzels", "Windows", "Framing", "Airports", "Armies", "Breakfast", "Cameras", "Optics", "Carpet", "Insects", "Refrigerators", "Rockets", "Stones", "Tutors", "Doctors", "Flowers", "Garages" );
-const beginningNames = Array("James" , "Soft" , "Hard" , "Intense" , "Cyber" , "Sarah's" , "James'" , "Simon's" , "Ella's" , "Justin's" , "Ethan's" , "Joey's" , "Hooper's" , "Nick's" , "Andrew's" , "Red" , "Purple" , "Blue" , "Oceanic" , "Super" , "Duper" , "Computer" ,"Scientific" ,"Abstract" ,"Geometric" ,"Triangular" ,"Rectangular" ,"Bart" ,"Beavis" ,"Butthead" ,"Plant" ,"Hurricane" ,"Tornado" ,"Java" ,"C++" ,"Python" ,"App" ,"Public" ,"Spider" ,"Brave" ,"Bright" ,"Dark" ,"Gloomy" ,"Cloudy" ,"Rainy" ,"Colorful" ,"Alive" ,"Delightful" ,"Funny" ,"Perfect" ,"Nutty" ,"Sparkling");
+const sectors = ["Energy", "Technology", "Industrials", "Financial Services", "Basic Materials", "Communication Services", "Consumer Defensive", "Healthcare", "Real Estate", "Utilities", "Industrial Goods", "Financial", "Services", "Conglomerates"];
+const industries = ["Autos" , "Banks" , "Banks Diversified" , "Software" , "Banks Regional" , "Beverages Alcoholic" , "Beverages Brewers" , "Beverages Non-Alcoholic"];
+const endNames = ["LLC" , "Management" ,"Inc" ,"Capital" ,"Advisors" ,"Group" ,"Services" , "Foundation" , "Partners" ,"Advisory" ,"Associates" ,"Corporation","Company","Corp","Global","Solutions","Fund","Strategies" ,"Retirement" ,"Consultants" ,"Hill" ,"Strategies" ,"New" ,"Strategic" ,"Portfolio" ,"Counsel" , "Solutions" , "Numerics"];
+const middleNames = ["News" , "Equipment" , "Techniques" , "Layers" , "Utensils" , "Foods" , "Oils" , "Instruments" , "Engineering" , "Construction" , "Fencing" , "Oranges" , "Markers" , "Pencils" , "Rods" , "Bricks" , "Housing" , "Training", "Cotton", "Corn", "Paint", "Hats", "Apples", "Bottles", "Shoes", "Pretzels", "Windows", "Framing", "Airports", "Armies", "Breakfast", "Cameras", "Optics", "Carpet", "Insects", "Refrigerators", "Rockets", "Stones", "Tutors", "Doctors", "Flowers", "Garages" ];
+const beginningNames = ["James" , "Soft" , "Hard" , "Intense" , "Cyber" , "Sarah's" , "James'" , "Simon's" , "Ella's" , "Justin's" , "Ethan's" , "Joey's" , "Hooper's" , "Nick's" , "Andrew's" , "Red" , "Purple" , "Blue" , "Oceanic" , "Super" , "Duper" , "Computer" ,"Scientific" ,"Abstract" ,"Geometric" ,"Triangular" ,"Rectangular" ,"Bart" ,"Beavis" ,"Butthead" ,"Plant" ,"Hurricane" ,"Tornado" ,"Java" ,"C++" ,"Python" ,"App" ,"Public" ,"Spider" ,"Brave" ,"Bright" ,"Dark" ,"Gloomy" ,"Cloudy" ,"Rainy" ,"Colorful" ,"Alive" ,"Delightful" ,"Funny" ,"Perfect" ,"Nutty" ,"Sparkling"];
 
 function generate2WayName()
 {
@@ -70,10 +70,10 @@ function generateRandomVolume()
     return generateRandomDecimalInRangeFormatted(500 , 10000000 , 0);
 }
 
-function generateRandomBeta()
-{
-    return generateRandomDecimalInRangeFormatted(1 , 2.3, 4);
-}
+// function generateRandomBeta()
+// {
+//     return generateRandomDecimalInRangeFormatted(1 , 2.3, 4);
+// }
 
 function getSymbolFromName(name)
 {
