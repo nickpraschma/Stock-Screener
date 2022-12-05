@@ -135,7 +135,7 @@ function createRandomStock()
     symbol = symbol.toUpperCase();
     randomMarketCap = randomPrice * generateRandomVolume(1000 , 10000 , 2);
     let stock1 = new randomStock(randomSector , randomIndustry  , randomPrice , randomName , beta , volume , symbol , randomMarketCap);
-    printStock(stock1);
+    // printStock(stock1);
     return stock1;
 
 }
