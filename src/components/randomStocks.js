@@ -142,7 +142,7 @@ function createRandomStock()
 
 
 
-function getRandomStocks()
+const getRandomStocks = () =>
 {
     let a = Array(100000);
     for(let i = 0; i < a.length; i++)
