@@ -20,7 +20,7 @@ const UserForm = ({ searchStocks }) => {
     }
 
     const showDialog = () => {
-        alert('This parameter will limit the maximum number of stocks that the website will fetch (a maximum of 6043 real stocks).\n\nIf exactly 100,000 is entered, 100,000 randomly generated stocks will be returned.\n\nWARNING: If you double click a sorting parameter (e.g. price) using Quicksort for the 100,000 stocks, the website will timeout because Quicksort is O(n^2) for reversing a list.');
+        alert('This parameter will limit the maximum number of stocks that the website will fetch (a maximum of 6043 real stocks).\n\nIf exactly 100,000 is entered, 100,000 randomly generated stocks will be returned.\n\nWARNING: If you double click a sorting parameter (e.g. price) using Quicksort for the 100,000 stocks, the website will timeout because Quicksort is O(n^2) for sorting an already sorted list.');
     }
 
     return (
