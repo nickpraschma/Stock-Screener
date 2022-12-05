@@ -5,6 +5,7 @@ import Stock from './components/Stock';
 import TopBar from './components/TopBar';
 import TimSort from './sorting_algorithms/TimSort';
 import quicksort from "./sorting_algorithms/QuickSort";
+import getRandomStocks from './components/randomStocks';
 
 const App = () => {
     const [stocks, setStocks] = useState([]);
@@ -15,10 +16,18 @@ const App = () => {
 
     const searchStocks = async (filters) => {
         console.log("filters: ", filters);
-        const response = await fetch(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${filters.marketCapMoreThan}&marketCapLowerThan=${filters.marketCapLowerThan}&betaMoreThan=${filters.betaMoreThan}&betaLowerThan=${filters.betaLowerThan}&volumeMoreThan=${filters.volumeMoreThan}&volumeLowerThan=${filters.volumeLowerThan}&priceMoreThan=${filters.priceMoreThan}&priceLowerThan=${filters.priceLowerThan}&exchange=NASDAQ&limit=${filters.limit}&apikey=a5df1e34a66d2eeb25448eb9a1f2655f`);
-        const data = await response.json();
-        setStocks(data);
-        console.log("stock data: ", data);
+
+        if (filters.limit === "100000") {
+            const randomlyGeneratedStocks = getRandomStocks();
+            setStocks(randomlyGeneratedStocks);
+            console.log("random stocks: ", randomlyGeneratedStocks);
+        }
+        else {
+            const response = await fetch(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${filters.marketCapMoreThan}&marketCapLowerThan=${filters.marketCapLowerThan}&betaMoreThan=${filters.betaMoreThan}&betaLowerThan=${filters.betaLowerThan}&volumeMoreThan=${filters.volumeMoreThan}&volumeLowerThan=${filters.volumeLowerThan}&priceMoreThan=${filters.priceMoreThan}&priceLowerThan=${filters.priceLowerThan}&exchange=NASDAQ&limit=${filters.limit}&apikey=a5df1e34a66d2eeb25448eb9a1f2655f`);
+            const data = await response.json();
+            setStocks(data);
+            console.log("stock data: ", data);
+        }
 
         setHasSearchedAtLeastOnce(true);
         // Reset sorting parameters when search button is clicked
@@ -60,7 +69,7 @@ const App = () => {
                     onClick={() => {setSortingMethod("timsort")}}>
                 Timsort
                 </button>  
-                <span className="sortedMessage"> Sorted stocks in {timeToSort.toFixed(4)} ms.</span>
+                <span className="sortedMessage"> Sorted stocks in {timeToSort.toFixed(1)} ms.</span>
                 <div className="grid">
                     <TopBar setParameters={sortStocks} reset={resetFlag}/>
                     {stocks.map((stock, index) => (
