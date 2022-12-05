@@ -1,8 +1,16 @@
 
+//This funtion consist of 10 functions based on parameters pased in
+//First Timsort will see if size is greater than 32 if so insert sort from 0 index to 32 else insert sort for size of array
+//Then insert sort will sort that chunk from array
+//Then after the entire array is sorted in sizes of 32 the mergeSort is called to merge the 32 sied sort
+//Code inspired by https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-25.php
+
+
+
 function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
 
     if (sortBy === "price") {
-        if (sortAscending) {
+        if (!sortAscending) {
 
 
             function mergeAsend(apiArr, left, mid, right, sortBy) {
@@ -221,7 +229,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
             Tim(currentStocks);
         }
     } else if (sortBy === "marketCap") {
-        if (sortAscending) {
+        if (!sortAscending) {
 
 
             function mergeAsend(apiArr, left, mid, right, sortBy) {
@@ -440,7 +448,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
             Tim(currentStocks);
         }
     } else if (sortBy === "volume") {
-        if (sortAscending) {
+        if (!sortAscending) {
 
 
             function mergeAsend(apiArr, left, mid, right, sortBy) {
@@ -659,7 +667,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
             Tim(currentStocks);
         }
     } else if (sortBy === "beta") {
-        if (sortAscending) {
+        if (!sortAscending) {
 
 
             function mergeAsend(apiArr, left, mid, right, sortBy) {
@@ -878,7 +886,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
             Tim(currentStocks);
         }
     }else if (sortBy === "symbol") {
-        if (sortAscending) {
+        if (!sortAscending) {
             console.log("DDD");
 
 
