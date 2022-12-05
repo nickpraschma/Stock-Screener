@@ -23,7 +23,7 @@ const App = () => {
             console.log("random stocks: ", randomlyGeneratedStocks);
         }
         else {
-            const response = await fetch(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${filters.marketCapMoreThan}&marketCapLowerThan=${filters.marketCapLowerThan}&betaMoreThan=${filters.betaMoreThan}&betaLowerThan=${filters.betaLowerThan}&volumeMoreThan=${filters.volumeMoreThan}&volumeLowerThan=${filters.volumeLowerThan}&priceMoreThan=${filters.priceMoreThan}&priceLowerThan=${filters.priceLowerThan}&exchange=NASDAQ&limit=${filters.limit}&apikey=a5df1e34a66d2eeb25448eb9a1f2655f`);
+            const response = await fetch(`https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=${filters.marketCapMoreThan}&marketCapLowerThan=${filters.marketCapLowerThan}&betaMoreThan=${filters.betaMoreThan}&betaLowerThan=${filters.betaLowerThan}&volumeMoreThan=${filters.volumeMoreThan}&volumeLowerThan=${filters.volumeLowerThan}&priceMoreThan=${filters.priceMoreThan}&priceLowerThan=${filters.priceLowerThan}&exchange=NASDAQ&limit=${filters.limit}&apikey=f026702c911b75bea9870b33273a09ba`);
             const data = await response.json();
             setStocks(data);
             console.log("stock data: ", data);

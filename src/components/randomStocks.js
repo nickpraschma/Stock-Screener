@@ -111,15 +111,15 @@ function getSymbolFromName(name)
     return symbol;
 }
 
-function printStock(stock1)
-{
-    console.log("Price: " + stock1.price);
-    console.log("Beta: " + stock1.beta);
-    console.log("Volume: " + stock1.volume);
-    console.log("Symbol: " + stock1.symbol);
-    console.log("MarketCap: " + stock1.marketCap);
-    console.log();
-}
+// function printStock(stock1)
+// {
+//     console.log("Price: " + stock1.price);
+//     console.log("Beta: " + stock1.beta);
+//     console.log("Volume: " + stock1.volume);
+//     console.log("Symbol: " + stock1.symbol);
+//     console.log("MarketCap: " + stock1.marketCap);
+//     console.log();
+// }
 
 
 function createRandomStock()
