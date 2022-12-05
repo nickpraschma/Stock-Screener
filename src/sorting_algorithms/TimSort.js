@@ -1,15 +1,23 @@
 
-function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
+//This funtion consist of 10 functions based on parameters pased in
+//First Timsort will see if size is greater than 32 if so insert sort from 0 index to 32 else insert sort for size of array
+//Then insert sort will sort that chunk from array
+//Then after the entire array is sorted in sizes of 32 the mergeSort is called to merge the 32 sied sort
+//Code inspired by https://www.w3resource.com/javascript-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-25.php
+
+
+
+function TimSort(currentStocks, sortBy, sortAscending){
 
     if (sortBy === "price") {
-        if (sortAscending) {
+        if (!sortAscending) {
 
-
-            function mergeAsend(apiArr, left, mid, right, sortBy) {
+            function mergeAsend(apiArr, left, mid, right) {
 
                 if (mid >= right) {
                     return
                 }
+
                 let length1 = mid - left + 1;
                 let length2 = right - mid;
                 let leftArr = Array(length1);
@@ -49,12 +57,9 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num2++;
                 }
-
-
             }
 
-
-            function InsertSortAsend(apiArr, left, right, sortBy) {
+            function InsertSortAsend(apiArr, left, right) {
 
                 for (let i = left + 1; i <= right; i++) {
 
@@ -68,11 +73,9 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     apiArr[index + 1] = temp;
                 }
 
-
             }
 
-            function TimAsend(apiArr, sortBy) {
-
+            function TimAsend(apiArr) {
 
                 let MIN = 32;
                 let size = apiArr.length;
@@ -86,8 +89,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                         right = size - 1;
                     }
 
-                    InsertSortAsend(apiArr, i, right, sortBy);
-
+                    InsertSortAsend(apiArr, i, right);
                 }
 
                 for (let i = MIN; i < size; i *= 2) {
@@ -103,17 +105,15 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                             right = size - 1;
                         }
 
-                        mergeAsend(apiArr, left, mid, right, sortBy);
-
-
+                        mergeAsend(apiArr, left, mid, right);
                     }
                 }
+
                 return apiArr;
             }
-
-
             TimAsend(currentStocks, "price");
-        } else {
+        }
+        else {
 
             function merge(apiArr, left, mid, right) {
 
@@ -159,10 +159,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num2++;
                 }
-
-
             }
-
 
             function InsertSort(apiArr, left, right) {
 
@@ -177,8 +174,6 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
                     apiArr[index + 1] = temp;
                 }
-
-
             }
 
             function Tim(apiArr) {
@@ -195,7 +190,6 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
 
                     InsertSort(apiArr, i, right);
-
                 }
 
                 for (let i = MIN; i < size; i *= 2) {
@@ -210,21 +204,18 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                         } else {
                             right = size - 1;
                         }
-
                         merge(apiArr, left, mid, right);
-
                     }
                 }
                 return apiArr;
             }
-
             Tim(currentStocks);
         }
-    } else if (sortBy === "marketCap") {
-        if (sortAscending) {
+    }
+    else if (sortBy === "marketCap") {
+        if (!sortAscending) {
 
-
-            function mergeAsend(apiArr, left, mid, right, sortBy) {
+            function mergeAsend(apiArr, left, mid, right) {
 
                 if (mid >= right) {
                     return
@@ -263,17 +254,15 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num1++;
                 }
+
                 while (num2 < rightArr.length) {
                     apiArr[num3] = rightArr[num2];
                     num3++;
                     num2++;
                 }
-
-
             }
 
-
-            function InsertSortAsend(apiArr, left, right, sortBy) {
+            function InsertSortAsend(apiArr, left, right) {
 
                 for (let i = left + 1; i <= right; i++) {
 
@@ -286,12 +275,9 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
                     apiArr[index + 1] = temp;
                 }
-
-
             }
 
-            function TimAsend(apiArr, sortBy) {
-
+            function TimAsend(apiArr) {
 
                 let MIN = 32;
                 let size = apiArr.length;
@@ -305,8 +291,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                         right = size - 1;
                     }
 
-                    InsertSortAsend(apiArr, i, right, sortBy);
-
+                    InsertSortAsend(apiArr, i, right);
                 }
 
                 for (let i = MIN; i < size; i *= 2) {
@@ -322,14 +307,12 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                             right = size - 1;
                         }
 
-                        mergeAsend(apiArr, left, mid, right, sortBy);
-
+                        mergeAsend(apiArr, left, mid, right);
 
                     }
                 }
                 return apiArr;
             }
-
 
             TimAsend(currentStocks, "marketCap");
         } else {
@@ -378,11 +361,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num2++;
                 }
-
-
             }
-
-
             function InsertSort(apiArr, left, right) {
 
                 for (let i = left + 1; i <= right; i++) {
@@ -396,8 +375,6 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
                     apiArr[index + 1] = temp;
                 }
-
-
             }
 
             function Tim(apiArr) {
@@ -412,9 +389,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     } else {
                         right = size - 1;
                     }
-
                     InsertSort(apiArr, i, right);
-
                 }
 
                 for (let i = MIN; i < size; i *= 2) {
@@ -431,7 +406,6 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                         }
 
                         merge(apiArr, left, mid, right);
-
                     }
                 }
                 return apiArr;
@@ -439,11 +413,11 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
 
             Tim(currentStocks);
         }
-    } else if (sortBy === "volume") {
-        if (sortAscending) {
+    }
+    else if (sortBy === "volume") {
+        if (!sortAscending) {
 
-
-            function mergeAsend(apiArr, left, mid, right, sortBy) {
+            function mergeAsend(apiArr, left, mid, right) {
 
                 if (mid >= right) {
                     return
@@ -482,17 +456,15 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num1++;
                 }
+
                 while (num2 < rightArr.length) {
                     apiArr[num3] = rightArr[num2];
                     num3++;
                     num2++;
                 }
-
-
             }
 
-
-            function InsertSortAsend(apiArr, left, right, sortBy) {
+            function InsertSortAsend(apiArr, left, right) {
 
                 for (let i = left + 1; i <= right; i++) {
 
@@ -505,12 +477,9 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
                     apiArr[index + 1] = temp;
                 }
-
-
             }
 
-            function TimAsend(apiArr, sortBy) {
-
+            function TimAsend(apiArr) {
 
                 let MIN = 32;
                 let size = apiArr.length;
@@ -523,9 +492,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     } else {
                         right = size - 1;
                     }
-
-                    InsertSortAsend(apiArr, i, right, sortBy);
-
+                    InsertSortAsend(apiArr, i, right);
                 }
 
                 for (let i = MIN; i < size; i *= 2) {
@@ -541,17 +508,15 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                             right = size - 1;
                         }
 
-                        mergeAsend(apiArr, left, mid, right, sortBy);
-
-
+                        mergeAsend(apiArr, left, mid, right);
                     }
                 }
                 return apiArr;
             }
 
-
             TimAsend(currentStocks, "volume");
-        } else {
+        }
+        else {
 
             function merge(apiArr, left, mid, right) {
 
@@ -597,10 +562,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num2++;
                 }
-
-
             }
-
 
             function InsertSort(apiArr, left, right) {
 
@@ -615,8 +577,6 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
                     apiArr[index + 1] = temp;
                 }
-
-
             }
 
             function Tim(apiArr) {
@@ -659,10 +619,9 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
             Tim(currentStocks);
         }
     } else if (sortBy === "beta") {
-        if (sortAscending) {
+        if (!sortAscending) {
 
-
-            function mergeAsend(apiArr, left, mid, right, sortBy) {
+            function mergeAsend(apiArr, left, mid, right) {
 
                 if (mid >= right) {
                     return
@@ -706,12 +665,9 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num2++;
                 }
-
-
             }
 
-
-            function InsertSortAsend(apiArr, left, right, sortBy) {
+            function InsertSortAsend(apiArr, left, right) {
 
                 for (let i = left + 1; i <= right; i++) {
 
@@ -724,12 +680,9 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
                     apiArr[index + 1] = temp;
                 }
-
-
             }
 
-            function TimAsend(apiArr, sortBy) {
-
+            function TimAsend(apiArr) {
 
                 let MIN = 32;
                 let size = apiArr.length;
@@ -743,8 +696,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                         right = size - 1;
                     }
 
-                    InsertSortAsend(apiArr, i, right, sortBy);
-
+                    InsertSortAsend(apiArr, i, right);
                 }
 
                 for (let i = MIN; i < size; i *= 2) {
@@ -755,28 +707,26 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
 
                         if ((left + 2 * i - 1) < size - 1) {
                             right = left + 2 * i - 1;
-
-                        } else {
+                        }
+                        else {
                             right = size - 1;
                         }
-
-                        mergeAsend(apiArr, left, mid, right, sortBy);
-
-
+                        mergeAsend(apiArr, left, mid, right);
                     }
                 }
                 return apiArr;
             }
 
-
             TimAsend(currentStocks, "beta");
-        } else {
+        }
+        else {
 
             function merge(apiArr, left, mid, right) {
 
                 if (mid >= right) {
                     return
                 }
+
                 let length1 = mid - left + 1;
                 let length2 = right - mid;
                 let leftArr = Array(length1);
@@ -816,10 +766,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num2++;
                 }
-
-
             }
-
 
             function InsertSort(apiArr, left, right) {
 
@@ -834,8 +781,6 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
                     apiArr[index + 1] = temp;
                 }
-
-
             }
 
             function Tim(apiArr) {
@@ -850,9 +795,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     } else {
                         right = size - 1;
                     }
-
                     InsertSort(apiArr, i, right);
-
                 }
 
                 for (let i = MIN; i < size; i *= 2) {
@@ -869,7 +812,6 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                         }
 
                         merge(apiArr, left, mid, right);
-
                     }
                 }
                 return apiArr;
@@ -877,12 +819,12 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
 
             Tim(currentStocks);
         }
-    }else if (sortBy === "symbol") {
-        if (sortAscending) {
-            console.log("DDD");
+    }
+    else if (sortBy === "symbol") {
+        if (!sortAscending) {
 
 
-            function mergeAsend(apiArr, left, mid, right, sortBy) {
+            function mergeAsend(apiArr, left, mid, right) {
 
                 if (mid >= right) {
                     return
@@ -926,12 +868,9 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num2++;
                 }
-
-
             }
 
-
-            function InsertSortAsend(apiArr, left, right, sortBy) {
+            function InsertSortAsend(apiArr, left, right) {
 
                 for (let i = left + 1; i <= right; i++) {
 
@@ -944,11 +883,9 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
                     apiArr[index + 1] = temp;
                 }
-
-
             }
 
-            function TimAsend(apiArr, sortBy) {
+            function TimAsend(apiArr) {
 
 
                 let MIN = 32;
@@ -963,8 +900,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                         right = size - 1;
                     }
 
-                    InsertSortAsend(apiArr, i, right, sortBy);
-
+                    InsertSortAsend(apiArr, i, right);
                 }
 
                 for (let i = MIN; i < size; i *= 2) {
@@ -979,17 +915,13 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                         } else {
                             right = size - 1;
                         }
-
-                        mergeAsend(apiArr, left, mid, right, sortBy);
-
-
+                        mergeAsend(apiArr, left, mid, right);
                     }
                 }
                 return apiArr;
             }
-
-
             TimAsend(currentStocks, "symbol");
+
         } else {
 
             function merge(apiArr, left, mid, right) {
@@ -1036,10 +968,7 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     num3++;
                     num2++;
                 }
-
-
             }
-
 
             function InsertSort(apiArr, left, right) {
 
@@ -1054,8 +983,6 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
                     apiArr[index + 1] = temp;
                 }
-
-
             }
 
             function Tim(apiArr) {
@@ -1072,7 +999,6 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
                     }
 
                     InsertSort(apiArr, i, right);
-
                 }
 
                 for (let i = MIN; i < size; i *= 2) {
@@ -1086,17 +1012,17 @@ function TimSort(currentStocks, sortingMethod, sortBy, sortAscending){
 
                         } else {
                             right = size - 1;
-
                         }
                         merge(apiArr, left, mid, right);
                     }
                 }
                 return apiArr;
             }
+
             Tim(currentStocks);
         }
     }
 }
 
-
+//Export it to app.js
 export default TimSort;
